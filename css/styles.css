@@ -1,12 +1,12 @@
 
-
+/*//У FIGMA МАКЕТІ В МЕНЕ ВІДОБРАЖАЄТЬСЯ ТІЛЬКИ РОЗМІР КАРТИНОК (ПЕРЕХОДЖУ ЧЕРЕЗ ПОСИЛАННЯ У FIGMA DESKTOP) ТОМУ ВСІ СТИЛІ РОБИВ НА ОКО*/
 ul {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin: 25px 75px;
-    gap: 15px;
+    gap: 20px;
     user-select: none;
     list-style: none;
 }
