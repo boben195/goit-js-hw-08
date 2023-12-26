@@ -1,4 +1,4 @@
-//У FIGMA МАКЕТІ В МЕНЕ ВІДОБРАЖАЄТЬСЯ ТІЛЬКИ РОЗМІР КАРТИНОК (ПЕРЕХОДЖУ ЧЕРЕЗ ПОСИЛАННЯ У FIGMA DESKTOP) ТОМУ ВСІ СТИЛІ РОБИВ НА ОКО
+
 const images = [
   {
     preview:
@@ -66,13 +66,13 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery") 
-//console.log(creatList(images));
-list.innerHTML = creatList(images);
+list.innerHTML = createList(images);
 list.addEventListener('click', handleListImage);
+let instance;
 
 
 
-function creatList(arr) {
+function createList(arr) {
     return arr
         .map(({ preview, original, description }) => `<li class="gallery-item">
     <a class="gallery-link" href="${original}">
@@ -84,15 +84,13 @@ function creatList(arr) {
 
 
 function handleListImage(event) {
-  //console.log(event.target);
-  //console.log(event.currentTarget);
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-  const instance = basicLightbox.create(
+   instance = basicLightbox.create(
     `<img src="${event.target.dataset.source}"
-   width="1112" height="640" style= box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5)">`,
+   width="1112" height="640" style="box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5)">`,
 
     {
       onShow: () => {
@@ -104,12 +102,15 @@ function handleListImage(event) {
     },
   );
   
-  const onKeydownEsc = event => {
-    console.log(event.code);
-    if (event.code === 'Escape') {
-      instance.close();
-    }
-  };
+ 
   
   instance.show();
-}
+};
+
+ const onKeydownEsc = event => {
+      if (event.code === 'Escape') {
+      instance.close();
+   };
+  };
+
+
